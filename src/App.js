@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Board } from "./components/board";
+import React, { useEffect, useState } from "react";
+import  Board  from "./components/board";
 import { Sidebar } from "./components/sidebar";
 
 function App() {
+
+
 
   const [boards, setBoards] = useState([
     {
@@ -140,14 +142,20 @@ function App() {
     // const currentColumn = currentBoard.find((board)=> board.columns === "Todo")
     // console.log(currentBoard)
     const currentBoard = (newBoard.find((board)=>board.name===activeBoard))
-
     const currentColumn = currentBoard.columns.find((column)=> (column.name === taskProperties.status ))
     currentColumn?.tasks.push(newTask)
 
-
-    console.log(newBoard)
-    console.log(boards)
+    // console.log(newBoard)
+    // console.log(boards)
+    // const chuj = [newBoard]
     // setBoards(newBoard)
+    console.log(boards)
+    setBoards(newBoard)
+    console.log(boards)
+
+
+    console.log(boards)
+    // console.log(newBoard)
   }
 
   const changeActiveBoard = (boardName) => {
@@ -155,6 +163,9 @@ function App() {
   };
 
   console.log(boards);
+
+  let dupa = boards
+
 
   return (
     <div className="App">
@@ -166,7 +177,7 @@ function App() {
           handleAddNewBoard={addNewBoard}
         ></Sidebar>
       </header>
-      <Board boards={boards} activeBoard={activeBoard} addNewTask={addNewTask}></Board>
+      <Board boards={dupa} activeBoard={activeBoard} addNewTask={addNewTask}></Board>
     </div>
   );
 }
