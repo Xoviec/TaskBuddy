@@ -22,9 +22,6 @@ const Board = (props) => {
     (board) => board.name === props.activeBoard
   );
 
-  console.log(props)
-
-  console.log(currentBoard.columns)
 
   return (
     <div className="board">
@@ -37,7 +34,7 @@ const Board = (props) => {
       </div>
       <div className="columns">
         {currentBoard.columns.map((column) => {
-          return <Column column={column} />;
+          return <Column column={column} currentBoard={currentBoard} />;
         })}
       </div>
       

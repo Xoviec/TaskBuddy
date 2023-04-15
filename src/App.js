@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import  Board  from "./components/board";
 import { Sidebar } from "./components/sidebar";
+import { connect } from "react-redux";
+import actions from "./components/duck/actions";
 
-function App() {
+
+function App(props) {
 
 
+  const reduxBoard = props.items.list
 
   const [boards, setBoards] = useState([
     {
@@ -138,23 +142,26 @@ function App() {
       subTasks: [taskProperties.subTasks]
     }
 
-    const newBoard = boards
+    // const newBoard = boards
     // const currentColumn = currentBoard.find((board)=> board.columns === "Todo")
     // console.log(currentBoard)
-    const currentBoard = (newBoard.find((board)=>board.name===activeBoard))
+    const currentBoard = (reduxBoard.find((board)=>board.name===activeBoard))
     const currentColumn = currentBoard.columns.find((column)=> (column.name === taskProperties.status ))
     currentColumn?.tasks.push(newTask)
+
+    console.log(reduxBoard)
+    props.update()
+    console.log(reduxBoard)
 
     // console.log(newBoard)
     // console.log(boards)
     // const chuj = [newBoard]
     // setBoards(newBoard)
-    console.log(boards)
-    setBoards(newBoard)
-    console.log(boards)
+    // console.log(boards)
+    // setBoards(new)
+    // console.log(boards)
 
 
-    console.log(boards)
     // console.log(newBoard)
   }
 
@@ -162,7 +169,6 @@ function App() {
     setActiveBoard(boardName);
   };
 
-  console.log(boards);
 
   let dupa = boards
 
@@ -182,4 +188,12 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch =>({
+  update: ()=>dispatch(actions.componentUpdate())
+})
+
+const mapStateToProps = state =>({
+  items: state.stateItems
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -5,23 +5,29 @@ import { connect } from "react-redux";
 
 const Column = (props) => {
 
+
+  const reduxBoard = props.items.list
+
+  const columnName = props.column.name
+  const currentBoard = props.currentBoard
+
+
+
+  const column = currentBoard.columns.find((x)=>x.name===columnName)
+
+
+
+  // console.log(columnName)
+  const currentBoardRedux = reduxBoard.find((x)=>(x.name===currentBoard.name))
+
+  const currentColumnRedux = currentBoardRedux.columns.find((column)=>column.name===columnName)
   
-  const [columnTasks, setColumn] = useState(props.column.tasks)
-
-  useEffect(()=>{
-
-    console.log('ssraka')
-
-  }, props)
-  console.log(columnTasks)
-  console.log('gownoo')
- 
-  console.log(props.column.tasks)
+  console.log(currentColumnRedux)
   return (
     <div className="column">
       <h2 className="heading-secondary">{props.column.name} (x)</h2>
       <div>
-        {props.column.tasks.map((task) => {
+        {currentColumnRedux.tasks.map((task) => {
           return <Task task={task} />;
         })}
       </div>
