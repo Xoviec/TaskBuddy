@@ -1,23 +1,158 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Board } from "./components/board";
+import { Sidebar } from "./components/sidebar";
 
 function App() {
+
+  const [boards, setBoards] = useState([
+    {
+      name: "Good name",
+      columns: [
+        {
+          name: "Do/doing/done",
+          tasks: [
+            {
+              title: "Test title",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Tablica 2",
+      columns: [
+        {
+          name: "Todo",
+          tasks: [
+            {
+              title: "Test title",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+            {
+              title: "Task nr 2",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+
+            {
+              title: "Task 3",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "In progress",
+          tasks: [
+            {
+              title: "Test title",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+            {
+              title: "Test in progres dwa",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "Complete",
+          tasks: [
+            {
+              title: "Test title",
+              description: "description",
+              status: "Todo",
+              subTasks: [
+                {
+                  subTaskTitle: "Nazwa etapu taska",
+                  isCompleted: false,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+
+  const [activeBoard, setActiveBoard] = useState(boards[0].name);
+
+  const addNewBoard = (boardName, columns) => {
+    const newBoard = {
+      name: boardName,
+      columns: columns,
+    };
+
+  const newBoardList = [...boards, newBoard];
+    setBoards(newBoardList);
+  };
+
+  const addNewTask = (taskTitle, taskDescription, taskStatus, taskSubTasks) =>{
+    const newTask = {
+      title: taskTitle,
+      description: taskDescription,
+      status: taskStatus,
+      subTasks: taskSubTasks
+    }
+  }
+
+  const changeActiveBoard = (boardName) => {
+    setActiveBoard(boardName);
+  };
+
+  console.log(boards);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Sidebar
+          boards={boards}
+          activeBoard={activeBoard}
+          handleChangeActiveBoard={changeActiveBoard}
+          handleAddNewBoard={addNewBoard}
+        ></Sidebar>
       </header>
+      <Board boards={boards} activeBoard={activeBoard} addNewTask={addNewTask}></Board>
     </div>
   );
 }
