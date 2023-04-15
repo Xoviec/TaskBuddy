@@ -131,3 +131,13 @@ code {
   flex-direction: column;
   justify-content: center;
 }
+
+.btn--add-new {
+  background: none;
+  border: none;
+  color: var(--main-color);
+  padding: 1.6rem 2.4rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 10rem;
+}

@@ -5,9 +5,6 @@ import logo from "../logo.svg";
 import kanbanLogo from "../kanban-3.svg";
 import { NewBoard } from "./newBoard";
 
-
-
-
 export const Sidebar = ({
   boards,
   activeBoard,
@@ -36,7 +33,7 @@ export const Sidebar = ({
           <div key={board.name}>
             <button className="board--active" onClick={changeActiveBoard}>
               <img className="kanban-logo" src={kanbanLogo} />
-              {board.name}
+              <p> &nbsp;{board.name}</p>
             </button>
           </div>
         );
