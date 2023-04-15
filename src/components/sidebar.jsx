@@ -33,7 +33,7 @@ export const Sidebar = ({
           <div key={board.name}>
             <button className="board--active" onClick={changeActiveBoard}>
               <img className="kanban-logo" src={kanbanLogo} />
-              <p> &nbsp;{board.name}</p>
+              <p className="marle">{board.name}</p>
             </button>
           </div>
         );
