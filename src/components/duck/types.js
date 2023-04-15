@@ -1,0 +1,5 @@
+const COMPONENT_UPDATE = 'COMPONENT_UPDATE'
+
+export default {
+    COMPONENT_UPDATE
+}

@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import dot from "../dot3.svg";
 import { NewTask } from "./newTask";
-import { Column } from "./column";
+import Column  from "./column";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import actions from "./duck/actions";
 
 
 
-
-
-export const Board = (props) => {
+const Board = (props) => {
   // console.log(props.boards)
 
+  console.log(props)
 
-  const currentBoard = props.boards.find(
+
+  const [boardsList, setBoardsList] = useState(props.boards)
+
+  useEffect(() => {
+    setBoardsList(props.boards);
+  }, [props]);
+
+  const currentBoard =boardsList?.find(
     (board) => board.name === props.activeBoard
   );
 
-
-  // console.log(currentBoard.columns)
 
   return (
     <div className="board">
@@ -29,9 +36,19 @@ export const Board = (props) => {
       </div>
       <div className="columns">
         {currentBoard.columns.map((column) => {
-          return <Column column={column} />;
+          return <Column column={column} currentBoard={currentBoard} />;
         })}
       </div>
+      
     </div>
   );
 };
+const mapDispatchToProps = dispatch =>({
+  update: ()=>dispatch(actions.componentUpdate())
+})
+
+const mapStateToProps = state =>({
+  items: state.stateItems
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Board)
