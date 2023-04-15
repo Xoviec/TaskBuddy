@@ -144,3 +144,66 @@ code {
 .marle {
   margin-left: 0.8rem;
 }
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  min-height: 35rem;
+  background-color: var(--dark-grey);
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  border-radius: 10px;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.form-add {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-add {
+  background-color: var(--dark-grey);
+  border: 2px solid rgba(130, 143, 163, 0.4);
+  font-size: 1rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.p-add {
+  color: white;
+  font-size: 1.4rem;
+}
+.btn-create-task {
+  border: none;
+  background: none;
+  background-color: var(--main-color);
+  color: white;
+  max-width: 50%;
+  align-self: center;
+  padding: 1.2rem 2.4rem;
+  border-radius: 300rem;
+}
+.wrapper-add {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.st-add {
+  color: var(--main-color);
+  background-color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
