@@ -6,12 +6,10 @@ import React from "react";
 export const NewBoard = ({handleAddNewBoard, boards}) =>{
 
     // const allColumns = (boards.map((board)=>
-        
     //         board.columns
-        
     // ))
-
     // console.log(allColumns)
+    
     const [formFields, setFormFields] = useState([
             {
                 name: '',
@@ -32,6 +30,7 @@ export const NewBoard = ({handleAddNewBoard, boards}) =>{
     }
 
     const addField = () =>{
+
 
         let object = 
         {

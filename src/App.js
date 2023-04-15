@@ -117,6 +117,7 @@ function App() {
 
   const [activeBoard, setActiveBoard] = useState(boards[0].name);
 
+
   const addNewBoard = (boardName, columns) => {
     const newBoard = {
       name: boardName,
@@ -127,13 +128,26 @@ function App() {
     setBoards(newBoardList);
   };
 
-  const addNewTask = (taskTitle, taskDescription, taskStatus, taskSubTasks) =>{
+  const addNewTask = (taskProperties) =>{
     const newTask = {
-      title: taskTitle,
-      description: taskDescription,
-      status: taskStatus,
-      subTasks: taskSubTasks
+      title: taskProperties.title,
+      description: taskProperties.description,
+      status: taskProperties.status,
+      subTasks: [taskProperties.subTasks]
     }
+
+    const newBoard = boards
+    // const currentColumn = currentBoard.find((board)=> board.columns === "Todo")
+    // console.log(currentBoard)
+    const currentBoard = (newBoard.find((board)=>board.name===activeBoard))
+
+    const currentColumn = currentBoard.columns.find((column)=> (column.name === taskProperties.status ))
+    currentColumn?.tasks.push(newTask)
+
+
+    console.log(newBoard)
+    console.log(boards)
+    // setBoards(newBoard)
   }
 
   const changeActiveBoard = (boardName) => {
