@@ -48,6 +48,7 @@ export const NewBoard = ({ handleAddNewBoard, boards }) => {
     e.preventDefault();
   };
 
+
   return (
     <div>
       <form onSubmit={addNewBoard}>
