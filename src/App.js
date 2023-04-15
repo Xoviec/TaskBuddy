@@ -130,6 +130,8 @@ function App(props) {
       columns: columns,
     };
 
+    reduxBoard.push(newBoard)
+
   const newBoardList = [...boards, newBoard];
     setBoards(newBoardList);
   };

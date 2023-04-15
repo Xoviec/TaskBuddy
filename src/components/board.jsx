@@ -11,6 +11,8 @@ import actions from "./duck/actions";
 const Board = (props) => {
   // console.log(props.boards)
 
+  console.log(props)
+
 
   const [boardsList, setBoardsList] = useState(props.boards)
 
