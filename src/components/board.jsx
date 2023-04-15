@@ -9,9 +9,6 @@ import actions from "./duck/actions";
 
 
 const Board = (props) => {
-  // console.log(props.boards)
-
-  console.log(props)
 
 
   const [boardsList, setBoardsList] = useState(props.boards)
@@ -25,12 +22,20 @@ const Board = (props) => {
   );
 
 
+  const columns = []
+
+  currentBoard.columns.map((board)=>{
+    columns.push(board.name)
+  })
+
+  console.log(columns)
+
   return (
     <div className="board">
       <div className="top-bar">
         {currentBoard.name}
         <div className="top-right">
-        <NewTask addNewTask={props.addNewTask}/>
+        <NewTask addNewTask={props.addNewTask} columns={columns}/>
           <img alt="dot" src={dot} />
         </div>
       </div>

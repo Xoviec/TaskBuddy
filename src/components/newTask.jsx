@@ -1,9 +1,8 @@
 import { useState } from "react";
 import React from "react";
 import close from "../close.svg";
-import { Menu } from "@headlessui/react";
 
-export const NewTask = ({ addNewTask }) => {
+export const NewTask = ({ addNewTask, columns }) => {
   const [formFields, setFormFields] = useState([
     {
       subTask: "",
@@ -20,12 +19,6 @@ export const NewTask = ({ addNewTask }) => {
     setFormFields([...formFields, object]);
   };
 
-  //   const handleFormChange = (event, index) => {
-  //     let data = [...formFields];
-
-  //     data[index] = event.target.value;
-  //     setFormFields(data);
-  //   };
   const handleFormChange = (event, index) => {
     let data = [...formFields];
 
@@ -47,9 +40,6 @@ export const NewTask = ({ addNewTask }) => {
     };
 
     addNewTask(newTask);
-
-    // // console.log(e.target.elements.title.value)
-    // console.log(newTask);
     e.preventDefault();
     setShowModal(false);
   };
@@ -83,15 +73,7 @@ export const NewTask = ({ addNewTask }) => {
                   placeholder="e.g. Add pagination feature for improved navigation and easier browsing."
                 />
               </div>
-              {/* <div className="wrapper-add">
-                <p className="p-add">Status</p>
-                <input
-                  className="input-add"
-                  type="text"
-                  name="status"
-                  placeholder="status"
-                />
-              </div> */}
+       
               <p className="p-add">Subtasks</p>
 
               {formFields.map((form, index) => {
@@ -138,14 +120,19 @@ export const NewTask = ({ addNewTask }) => {
                   <option value="" disabled hidden>
                     Select Status
                   </option>
-                  <option value="todo">Todo</option>
+                  {
+                    columns.map((col)=>{
+                      return(
+                        <option value={col}>{col}</option>
+                      )
+                    })
+                  }
+                  {/* <option value="Todo">Todo</option>
                   <option value="doing">Doing</option>
-                  <option value="done">Done</option>
+                  <option value="done">Done</option> */}
                 </select>
               </div>
-              {/* <button type="button" className="btn btn-create-task">
-              Create Task
-            </button> */}
+             
               <button type="submit" className="btn btn-create-task">
                 Create Task
               </button>
