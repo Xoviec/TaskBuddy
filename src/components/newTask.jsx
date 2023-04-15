@@ -1,5 +1,7 @@
 import { useState } from "react";
 import React from "react";
+import close from "../close.svg";
+import { Menu } from "@headlessui/react";
 
 export const NewTask = ({ addNewTask }) => {
   const [formFields, setFormFields] = useState([
@@ -18,10 +20,21 @@ export const NewTask = ({ addNewTask }) => {
     setFormFields([...formFields, object]);
   };
 
+  //   const handleFormChange = (event, index) => {
+  //     let data = [...formFields];
+
+  //     data[index] = event.target.value;
+  //     setFormFields(data);
+  //   };
   const handleFormChange = (event, index) => {
     let data = [...formFields];
 
-    data[index] = event.target.value;
+    if (event.target.name === "subTask" && event.target.value === "") {
+      data.splice(index, 1);
+    } else {
+      data[index] = event.target.value;
+    }
+
     setFormFields(data);
   };
 
@@ -35,8 +48,8 @@ export const NewTask = ({ addNewTask }) => {
 
     addNewTask(newTask);
 
-    // console.log(e.target.elements.title.value)
-    console.log(newTask);
+    // // console.log(e.target.elements.title.value)
+    // console.log(newTask);
     e.preventDefault();
     setShowModal(false);
   };
@@ -57,7 +70,7 @@ export const NewTask = ({ addNewTask }) => {
                   className="input-add"
                   type="text"
                   name="title"
-                  placeholder="Title"
+                  placeholder="e.g. Add pagination feature"
                 />
               </div>
               <div className="wrapper-add">
@@ -67,10 +80,10 @@ export const NewTask = ({ addNewTask }) => {
                   className="input-add"
                   type="text"
                   name="desc"
-                  placeholder="Description"
+                  placeholder="e.g. Add pagination feature for improved navigation and easier browsing."
                 />
               </div>
-              <div className="wrapper-add">
+              {/* <div className="wrapper-add">
                 <p className="p-add">Status</p>
                 <input
                   className="input-add"
@@ -78,28 +91,72 @@ export const NewTask = ({ addNewTask }) => {
                   name="status"
                   placeholder="status"
                 />
-              </div>
+              </div> */}
+              <p className="p-add">Subtasks</p>
+
               {formFields.map((form, index) => {
                 return (
                   <div className="wrapper-add">
-                    <input
-                      className="input-add"
-                      key={index}
-                      type="text"
-                      name="subTask"
-                      onChange={(event) => handleFormChange(event, index)}
-                    />
+                    <div className="wrapper-sub">
+                      <input
+                        className="input-add"
+                        key={index}
+                        type="text"
+                        name="subTask"
+                        placeholder="e.g. Implement the logic to show the correct subset of items based on the current page.
+                        "
+                        onChange={(event) => handleFormChange(event, index)}
+                      />
+                      <img
+                        className="close-btn"
+                        src={close}
+                        alt="Close button"
+                        onClick={() =>
+                          handleFormChange(
+                            { target: { name: "subTask", value: "" } },
+                            index
+                          )
+                        }
+                      />
+                    </div>
                   </div>
                 );
               })}
+
+              <button className="st-add" type="button" onClick={addField}>
+                + Add New Subtask
+              </button>
+
+              <div className="wrapper-add">
+                <p className="p-add">Status</p>
+                <select
+                  className="select-add"
+                  name="status"
+                  defaultValue=""
+                  onChange={(event) => handleFormChange(event)}
+                >
+                  <option value="" disabled hidden>
+                    Select Status
+                  </option>
+                  <option value="todo">Todo</option>
+                  <option value="doing">Doing</option>
+                  <option value="done">Done</option>
+                </select>
+              </div>
+              {/* <button type="button" className="btn btn-create-task">
+              Create Task
+            </button> */}
               <button type="submit" className="btn btn-create-task">
                 Create Task
               </button>
+              <button
+                type="button"
+                className="btn-close-add"
+                onClick={() => setShowModal(false)}
+              >
+                Close
+              </button>
             </form>
-            <button className="st-add" onClick={addField}>
-              + Add New Subtask
-            </button>
-            <button onClick={() => setShowModal(false)}>Close</button>
           </div>
         </div>
       )}

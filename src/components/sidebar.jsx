@@ -27,15 +27,19 @@ export const Sidebar = ({
 
   return (
     <div className="sidebar">
-      <img src={logo} />
+      <img className="tb-logo" src={logo} />
+      <p className="mode">KanBan Projects / GitHub Boards</p>
+      <p className="all-b">All boards (x)</p>
       {boards.map((board) => {
         return (
-          <div key={board.name}>
-            <button className="board--active" onClick={changeActiveBoard}>
-              <img className="kanban-logo" src={kanbanLogo} />
-              <p className="marle">{board.name}</p>
-            </button>
-          </div>
+          <>
+            <div key={board.name}>
+              <button className="board--active" onClick={changeActiveBoard}>
+                <img className="kanban-logo" src={kanbanLogo} />
+                <p className="marle">{board.name}</p>
+              </button>
+            </div>
+          </>
         );
       })}
       <NewBoard handleAddNewBoard={handleAddNewBoard} boards={boards} />
