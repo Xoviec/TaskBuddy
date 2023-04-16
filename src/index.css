@@ -286,6 +286,7 @@ code {
   font-size: 1.6rem;
   padding: 0.8rem 1.6rem;
   background-color: var();
+  font-weight: bold;
 }
 .mode-wrapper {
   display: flex;
