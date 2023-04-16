@@ -3,10 +3,6 @@ import React from "react";
 import logokan from "../kanban-blue.svg";
 
 export const NewBoard = ({ handleAddNewBoard, boards }) => {
-  // const allColumns = (boards.map((board)=>
-  //         board.columns
-  // ))
-  // console.log(allColumns)
 
   const [formFields, setFormFields] = useState([
     {
@@ -20,7 +16,6 @@ export const NewBoard = ({ handleAddNewBoard, boards }) => {
     data[index].name = event.target.value;
     setFormFields(data);
 
-    // console.log(data)
   };
 
   const addField = () => {
@@ -33,7 +28,6 @@ export const NewBoard = ({ handleAddNewBoard, boards }) => {
   };
 
   const addNewBoard = (e) => {
-    // console.log(e.target.name.value)
     const newBoard = e.target.name.value;
 
     console.log(formFields);
