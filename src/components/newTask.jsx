@@ -5,7 +5,8 @@ import close from "../close.svg";
 export const NewTask = ({ addNewTask, columns }) => {
   const [formFields, setFormFields] = useState([
     {
-      subTask: "",
+      subTaskTitle: "",
+      isCompleted: false,
     },
   ]);
 
@@ -13,22 +14,26 @@ export const NewTask = ({ addNewTask, columns }) => {
 
   const addField = () => {
     let object = {
-      subTask: "",
+      subTaskTitle: "",
+      isCompleted: false,
     };
 
     setFormFields([...formFields, object]);
+
+    console.log(formFields)
   };
 
   const handleFormChange = (event, index) => {
-    let data = [...formFields];
+    let data = [...formFields]
 
-    if (event.target.name === "subTask" && event.target.value === "") {
-      data.splice(index, 1);
-    } else {
-      data[index] = event.target.value;
-    }
+    console.log(index)
+    console.log(data[index])
+    data[index].subTaskTitle = event.target.value
 
-    setFormFields(data);
+
+    console.log(data[index])
+    
+    setFormFields(data)
   };
 
   const handleAddNewTask = (e) => {
@@ -36,8 +41,10 @@ export const NewTask = ({ addNewTask, columns }) => {
       title: e.target.elements.title.value,
       description: e.target.elements.desc.value,
       status: e.target.elements.status.value,
-      subTasks: formFields,
+      subTasks: formFields
     };
+
+
 
     addNewTask(newTask);
     e.preventDefault();
@@ -107,12 +114,12 @@ export const NewTask = ({ addNewTask, columns }) => {
                             className="close-btn"
                             src={close}
                             alt="Close button"
-                            onClick={() =>
-                              handleFormChange(
-                                { target: { name: "subTask", value: "" } },
-                                index
-                              )
-                            }
+                            // onClick={() =>
+                            //   handleFormChange(
+                            //     { target: { name: "subTask", value: "" } },
+                            //     index
+                            //   )
+                            // }
                           />
                         </div>
                       </div>
@@ -129,7 +136,7 @@ export const NewTask = ({ addNewTask, columns }) => {
                   className="select-add"
                   name="status"
                   defaultValue=""
-                  onChange={(event) => handleFormChange(event)}
+                  // onChange={(event) => handleFormChange(event)}
                 >
                   <option value="" disabled hidden>
                     Select Status

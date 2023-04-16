@@ -12,7 +12,6 @@ const Column = (props) => {
   const currentBoard = props.currentBoard
 
 
-
   const column = currentBoard?.columns.find((x)=>x.name===columnName)
 
 
@@ -21,11 +20,15 @@ const Column = (props) => {
   const currentBoardRedux = reduxBoard.find((x)=>(x.name===currentBoard.name))
 
   const currentColumnRedux = currentBoardRedux?.columns.find((column)=>column.name===columnName)
+  let taskCounter = 0;
+  {currentColumnRedux?.tasks?.map((task) => {
+    taskCounter++
+  })}
   
   console.log(currentColumnRedux)
   return (
     <div className="column">
-      <h2 className="heading-secondary">{props.column.name} (x)</h2>
+      <h2 className="heading-secondary">{props.column.name} ({taskCounter})</h2>
       <div>
         {currentColumnRedux?.tasks?.map((task) => {
           return <Task task={task} />;

@@ -17,6 +17,10 @@ const INITIAL_STATE = {
                         subTaskTitle: "Nazwa etapu taska",
                         isCompleted: false,
                       },
+                      {
+                        subTaskTitle: "Task drugi",
+                        isCompleted: false,
+                      },
                     ],
                   },
                 ],

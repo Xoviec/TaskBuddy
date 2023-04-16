@@ -26,6 +26,10 @@ function App(props) {
                   subTaskTitle: "Nazwa etapu taska",
                   isCompleted: false,
                 },
+                {
+                  subTaskTitle: "Task drugi",
+                  isCompleted: false,
+                },
               ],
             },
           ],
@@ -141,7 +145,7 @@ function App(props) {
       title: taskProperties.title,
       description: taskProperties.description,
       status: taskProperties.status,
-      subTasks: [taskProperties.subTasks]
+      subTasks: taskProperties.subTasks
     }
 
     const currentBoard = (reduxBoard.find((board)=>board.name===activeBoard))
