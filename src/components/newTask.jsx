@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import close from "../close.svg";
 
-export const NewTask = ({ addNewTask, columns }) => {
+export const NewTask = ({ addNewTask }) => {
   const [formFields, setFormFields] = useState([
     {
       subTask: "",
@@ -19,6 +19,12 @@ export const NewTask = ({ addNewTask, columns }) => {
     setFormFields([...formFields, object]);
   };
 
+  //   const handleFormChange = (event, index) => {
+  //     let data = [...formFields];
+
+  //     data[index] = event.target.value;
+  //     setFormFields(data);
+  //   };
   const handleFormChange = (event, index) => {
     let data = [...formFields];
 
@@ -40,6 +46,9 @@ export const NewTask = ({ addNewTask, columns }) => {
     };
 
     addNewTask(newTask);
+
+    // // console.log(e.target.elements.title.value)
+    // console.log(newTask);
     e.preventDefault();
     setShowModal(false);
   };
@@ -72,14 +81,14 @@ export const NewTask = ({ addNewTask, columns }) => {
                   <div className="wrapper-add">
                     <p className="p-add">Description</p>
 
-                <input
-                  className="input-add"
-                  type="text"
-                  name="desc"
-                  placeholder="e.g. Add pagination feature for improved navigation and easier browsing."
-                />
-              </div>
-              {/* <div className="wrapper-add">
+                    <input
+                      className="input-add"
+                      type="text"
+                      name="desc"
+                      placeholder="e.g. Add pagination feature for improved navigation and easier browsing."
+                    />
+                  </div>
+                  {/* <div className="wrapper-add">
                 <p className="p-add">Status</p>
                 <input
                   className="input-add"
@@ -88,7 +97,7 @@ export const NewTask = ({ addNewTask, columns }) => {
                   placeholder="status"
                 />
               </div> */}
-              <p className="p-add">Subtasks</p>
+                  <p className="p-add">Subtasks</p>
 
                   {formFields.map((form, index) => {
                     return (
@@ -123,36 +132,33 @@ export const NewTask = ({ addNewTask, columns }) => {
                     + Add New Subtask
                   </button>
 
-              <div className="wrapper-add">
-                <p className="p-add">Status</p>
-                <select
-                  className="select-add"
-                  name="status"
-                  defaultValue=""
-                  onChange={(event) => handleFormChange(event)}
-                >
-                  <option value="" disabled hidden>
-                    Select Status
-                  </option>
-                  <option value="todo">Todo</option>
-                  <option value="doing">Doing</option>
-                  <option value="done">Done</option>
-                </select>
-              </div>
-              {/* <button type="button" className="btn btn-create-task">
+                  <div className="wrapper-add">
+                    <p className="p-add">Status</p>
+                    <select
+                      className="select-add"
+                      name="status"
+                      defaultValue=""
+                      onChange={(event) => handleFormChange(event)}
+                    >
+                      <option value="" disabled hidden>
+                        Select Status
+                      </option>
+                      <option value="todo">Todo</option>
+                      <option value="doing">Doing</option>
+                      <option value="done">Done</option>
+                    </select>
+                  </div>
+                  {/* <button type="button" className="btn btn-create-task">
               Create Task
             </button> */}
-              <button type="submit" className="btn btn-create-task">
-                Create Task
-              </button>
-              <button
-                type="button"
-                className="btn-close-add"
-                onClick={() => setShowModal(false)}
-              >
-                Close
-              </button>
-            </form>
+                  <div className="wrapito">
+                    <button type="submit" className="btn btn-create-task">
+                      Create Task
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       )}
