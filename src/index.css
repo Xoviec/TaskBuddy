@@ -248,9 +248,10 @@ code {
   color: white;
   background-color: var(--main-color);
   border: none;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   font-size: 1.3rem;
   font-weight: 700;
+  width: 100%;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
 }
@@ -262,7 +263,7 @@ code {
   color: var(--main-color);
   background-color: white;
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   font-size: 1.3rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
@@ -272,7 +273,7 @@ code {
   color: var(--main-color);
   background-color: white;
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   font-size: 1.3rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
@@ -283,7 +284,7 @@ code {
   color: white;
   background-color: var(--main-color);
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   font-size: 1.3rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
