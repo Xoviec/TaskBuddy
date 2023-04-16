@@ -53,7 +53,7 @@ export const NewTask = ({ addNewTask, columns }) => {
         <div className="modalero" onClick={() => setShowModal(!showModal)}>
           <div className="modal-bg">
             <div className="modal" onClick={(event) => event.stopPropagation()}>
-              <p>Add new task</p>
+              <p>Add New Task</p>
               <div className="modal-content">
                 <form
                   className="form-add"
@@ -126,25 +126,21 @@ export const NewTask = ({ addNewTask, columns }) => {
                   <div className="wrapper-add">
                     <p className="p-add">Status</p>
                     <select
-                  className="select-add"
-                  name="status"
-                  defaultValue=""
-                  onChange={(event) => handleFormChange(event)}
-                >
-                  <option value="" disabled hidden>
-                    Select Status
-                  </option>
-                  {
-                    columns.map((col)=>{
-                      return(
-                        <option>{col}</option>
-                      )
-                    })
-                  }
-                  {/* <option value="Todo">Todo</option>
+                      className="select-add"
+                      name="status"
+                      defaultValue=""
+                      onChange={(event) => handleFormChange(event)}
+                    >
+                      <option value="" disabled hidden>
+                        Select Status
+                      </option>
+                      {columns.map((col) => {
+                        return <option>{col}</option>;
+                      })}
+                      {/* <option value="Todo">Todo</option>
                   <option value="doing">Doing</option>
                   <option value="done">Done</option> */}
-                </select>
+                    </select>
                   </div>
                   {/* <button type="button" className="btn btn-create-task">
               Create Task

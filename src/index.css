@@ -35,7 +35,7 @@ body {
   margin-bottom: 1rem;
 }
 .sidebar-board {
-  background-color:transparent;
+  background-color: transparent;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   border: none;
@@ -51,15 +51,13 @@ body {
   transition: 0.2s;
 }
 
-.sidebar-board:hover{
-  background-color: #58d3ff;
+.sidebar-board:hover {
+  background-color: #01bbff5b;
 }
 
-.sidebar-board-active{
+.sidebar-board-active {
   background-color: var(--main-color);
   transition: 0.2s;
-
-
 }
 
 .btn-add-task {
@@ -137,6 +135,7 @@ code {
 .heading-secondary {
   text-transform: uppercase;
   font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 .task-title {
   font-size: 1.6rem;
@@ -160,11 +159,13 @@ code {
 
   justify-content: center;
 }
-
+.btn--add-new:hover {
+  opacity: 0.7;
+}
 .btn--add-new {
+  color: var(--main-color);
   background: none;
   border: none;
-  color: var(--main-color);
   padding: 1.6rem 2.4rem;
   font-size: 1.6rem;
   font-weight: bold;
@@ -238,7 +239,11 @@ code {
 .p-add {
   color: white;
   font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
 }
+
 .btn-create-task {
   color: white;
   background-color: var(--main-color);
@@ -262,6 +267,28 @@ code {
   font-weight: 700;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
+}
+.column-add {
+  color: var(--main-color);
+  background-color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.board-add {
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 .select-add {
   display: flex;
@@ -309,14 +336,24 @@ code {
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 10rem;
   background-color: white;
+  color: var(--main-color);
 }
 .my-btn {
   border-top-left-radius: 10rem;
   border-bottom-left-radius: 10rem;
   background-color: var(--main-color);
+  color: white;
 }
 .wrapito {
   display: flex;
   gap: 2rem;
   justify-content: center;
+}
+.sidebar-board-active:hover {
+  background-color: var(--main-color);
+}
+.modal-heading {
+  color: white;
+  font-weight: 700;
+  font-size: 2.4rem;
 }
