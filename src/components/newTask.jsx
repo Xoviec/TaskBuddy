@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import close from "../close.svg";
 
-export const NewTask = ({ addNewTask }) => {
+export const NewTask = ({ addNewTask, columns }) => {
   const [formFields, setFormFields] = useState([
     {
       subTask: "",
@@ -19,12 +19,6 @@ export const NewTask = ({ addNewTask }) => {
     setFormFields([...formFields, object]);
   };
 
-  //   const handleFormChange = (event, index) => {
-  //     let data = [...formFields];
-
-  //     data[index] = event.target.value;
-  //     setFormFields(data);
-  //   };
   const handleFormChange = (event, index) => {
     let data = [...formFields];
 
@@ -46,9 +40,6 @@ export const NewTask = ({ addNewTask }) => {
     };
 
     addNewTask(newTask);
-
-    // // console.log(e.target.elements.title.value)
-    // console.log(newTask);
     e.preventDefault();
     setShowModal(false);
   };
@@ -135,18 +126,25 @@ export const NewTask = ({ addNewTask }) => {
                   <div className="wrapper-add">
                     <p className="p-add">Status</p>
                     <select
-                      className="select-add"
-                      name="status"
-                      defaultValue=""
-                      onChange={(event) => handleFormChange(event)}
-                    >
-                      <option value="" disabled hidden>
-                        Select Status
-                      </option>
-                      <option value="todo">Todo</option>
-                      <option value="doing">Doing</option>
-                      <option value="done">Done</option>
-                    </select>
+                  className="select-add"
+                  name="status"
+                  defaultValue=""
+                  onChange={(event) => handleFormChange(event)}
+                >
+                  <option value="" disabled hidden>
+                    Select Status
+                  </option>
+                  {
+                    columns.map((col)=>{
+                      return(
+                        <option>{col}</option>
+                      )
+                    })
+                  }
+                  {/* <option value="Todo">Todo</option>
+                  <option value="doing">Doing</option>
+                  <option value="done">Done</option> */}
+                </select>
                   </div>
                   {/* <button type="button" className="btn btn-create-task">
               Create Task
