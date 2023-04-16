@@ -28,7 +28,10 @@ export const Sidebar = ({
   return (
     <div className="sidebar">
       <img className="tb-logo" src={logo} />
-      <p className="mode">KanBan Projects / GitHub Boards</p>
+      <div className="mode-wrapper">
+        <button className="btn-mode my-btn">My</button>
+        <button className="btn-mode gh-btn">Github</button>
+      </div>
       <p className="all-b">All boards (x)</p>
       {boards.map((board) => {
         return (

@@ -49,6 +49,7 @@ body {
   padding-left: 3rem;
   min-height: 5rem;
 }
+
 .btn-add-task {
   background-color: var(--main-color);
   border: none;
@@ -160,10 +161,31 @@ code {
 .marle {
   margin-left: 0.8rem;
 }
-.modal {
+
+.modalero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 1;
+}
+
+.modal-bg {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  top: 50%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  z-index: 3;
+}
+
+.modal {
+  position: absolute;
   left: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
   width: 400px;
   min-height: 35rem;
@@ -209,7 +231,7 @@ code {
   color: white;
   background-color: var(--main-color);
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.2rem;
   font-size: 1.3rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
@@ -249,19 +271,39 @@ code {
 .blur {
   filter: blur(5px);
 }
-.btn-close-add {
-  border: none;
-  background-color: var(--color-red);
-  border-radius: 2rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  color: white;
-}
+
 .mode {
   color: white;
+  background-color: none;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.6rem;
+}
+
+.btn-mode {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var();
+}
+.mode-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.gh-btn {
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+  background-color: white;
+}
+.my-btn {
+  border-top-left-radius: 10rem;
+  border-bottom-left-radius: 10rem;
+  background-color: var(--main-color);
+}
+.wrapito {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
 }
