@@ -144,9 +144,6 @@ function App(props) {
       subTasks: [taskProperties.subTasks]
     }
 
-    // const newBoard = boards
-    // const currentColumn = currentBoard.find((board)=> board.columns === "Todo")
-    // console.log(currentBoard)
     const currentBoard = (reduxBoard.find((board)=>board.name===activeBoard))
     const currentColumn = currentBoard.columns.find((column)=> (column.name === taskProperties.status ))
     currentColumn?.tasks.push(newTask)
