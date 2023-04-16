@@ -37,7 +37,7 @@ export const Sidebar = ({
         return (
           <>
             <div key={board.name}>
-              <button className="board--active" onClick={changeActiveBoard}>
+              <button className={`sidebar-board ${activeBoard===board.name ? `sidebar-board-active` : ``}`} onClick={changeActiveBoard}>
                 <img className="kanban-logo" src={kanbanLogo} />
                 <p className="marle">{board.name}</p>
               </button>
