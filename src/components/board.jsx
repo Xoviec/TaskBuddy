@@ -28,8 +28,6 @@ const Board = (props) => {
     columns.push(board.name)
   })
 
-  console.log(columns)
-
   return (
     <div className="board">
       <div className="top-bar">

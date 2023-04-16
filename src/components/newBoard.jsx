@@ -12,22 +12,7 @@ export const NewBoard = ({ handleAddNewBoard, boards }) => {
   ]);
   const [showModal, setShowModal] = useState(false);
 
-  // const handleFormChange = (event, index) => {
-  //   let data = [...formFields];
-  //   data[index].name = event.target.value;
-  //   setFormFields(data);
-  // };
-  // const handleFormChange = (event, index) => {
-  //   let data = [...formFields];
 
-  //   if (event.target.name === "subTask" && event.target.value === "") {
-  //     data.splice(index, 1);
-  //   } else {
-  //     data[index] = event.target.value;
-  //   }
-
-  //   setFormFields(data);
-  // };
   const handleFormChange = (event, index) => {
     let data = [...formFields];
 

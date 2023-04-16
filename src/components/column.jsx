@@ -16,7 +16,6 @@ const Column = (props) => {
 
 
 
-  // console.log(columnName)
   const currentBoardRedux = reduxBoard.find((x)=>(x.name===currentBoard.name))
 
   const currentColumnRedux = currentBoardRedux?.columns.find((column)=>column.name===columnName)
@@ -25,7 +24,6 @@ const Column = (props) => {
     taskCounter++
   })}
   
-  console.log(currentColumnRedux)
   return (
     <div className="column">
       <h2 className="heading-secondary">{props.column.name} ({taskCounter})</h2>

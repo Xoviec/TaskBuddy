@@ -2,12 +2,6 @@ import React, { useEffect } from "react";
 
 export const Task = (props) => {
 
-
-  console.log(props.task)
-
-
-
-
   return (
     <div className="taks-card">
       <h2 className="task-title">{props.task.title}</h2>
